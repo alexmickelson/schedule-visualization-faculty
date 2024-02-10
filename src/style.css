@@ -3,9 +3,15 @@ body {
     padding: 0;
 }
 
-.calendarDay {
-    height: 5em;
-}
+/* .calendarDay {
+    min-height: 2.5em;
+} */
 .calendarDay:nth-child(even) {
-    background-color: black;
+    background-color: rgb(25, 25, 28);
+}
+
+.calendarDayContainer {
+
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }

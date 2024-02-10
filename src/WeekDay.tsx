@@ -17,7 +17,7 @@ export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
   return (
     <>
       {coursesByTimeSlot.map((coursesInTimeslot, index) => (
-        <div key={index} className="calendarDay p-2 border-end">
+        <div key={index + "weekday-courses"} className="calendarDay m-auto text-center p-2 border-end">
             {coursesInTimeslot.timeSlotCourses.map((course) => (
               <div className="text-truncate">
                 {course.CourseTitle}

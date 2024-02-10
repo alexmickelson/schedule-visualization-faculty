@@ -7,7 +7,7 @@ const localStorageKey = "faculty-schedule";
 const lastInput = localStorage.getItem(localStorageKey) ?? "";
 
 export const App = () => {
-  const [inputString, setInputString] = useState(lastInput);
+  const [inputString, setInputString] = useState("");
   localStorage.setItem(localStorageKey, inputString);
 
   const parsedCourses = parseCourseData(inputString);
@@ -55,7 +55,7 @@ export const App = () => {
           }}
         />
       </div>
-      <section className="m-2">
+      <section className="m-2 p-1">
         <h3 className="text-center">Professors</h3>
         <hr />
         {Object.keys(coursesByProfessor).map((professor) => (

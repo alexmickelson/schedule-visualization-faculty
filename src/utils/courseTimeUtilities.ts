@@ -1,12 +1,13 @@
 import { CourseData } from "../models/courseData";
 
-export const timeStringToDate = (timeString: string): Date => {
+const timeStringToDate = (timeString: string): Date => {
   if (!timeString) throw new Error("cannot parse empty timestring");
 
   const normalizedTimeString = timeString.replace(/(\d)(AM|PM|am|pm)/, "$1 $2");
   let [hoursMinutes, period] = normalizedTimeString.split(" ");
   let [hours, minutes] = hoursMinutes.split(":").map(Number);
-
+  
+  console.log(timeString, hoursMinutes, period);
   if (period.toUpperCase() === "PM" && hours < 12) {
     hours += 12;
   } else if (period.toUpperCase() === "AM" && hours === 12) {
@@ -23,6 +24,7 @@ export const isCourseInTimeSlot = (
   timeSlot: string,
   day: string
 ): boolean => {
+  console.log(timeSlot, course);
   if (course.MeetingPattern === "Does Not Meet") return false;
 
   const meetingPatterns = course.MeetingPattern.split(";")
