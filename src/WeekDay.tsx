@@ -2,13 +2,6 @@ import { FC } from "react";
 import { CourseData } from "./models/courseData";
 import { isCourseInTimeSlot, timeSlots } from "./utils/courseTimeUtilities";
 
-const dayLookup: { [key: string]: string } = {
-  M: "Monday",
-  T: "Tuesday",
-  W: "Wednesday",
-  R: "Thursday",
-  F: "Friday",
-};
 
 export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
   day,
@@ -22,20 +15,16 @@ export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
 
   console.log(coursesByTimeSlot);
   return (
-    <div className="col">
-      <div>{dayLookup[day]}</div>
+    <>
       {coursesByTimeSlot.map((coursesInTimeslot, index) => (
-        <div key={index} className="time-slot">
-          <div>{coursesInTimeslot.timeSlot}</div>
-          <ul>
+        <div key={index} className="calendarDay p-2 border-end">
             {coursesInTimeslot.timeSlotCourses.map((course) => (
-              <li>
-                {course.CourseTitle} - {course.MeetingPattern}
-              </li>
+              <div className="text-truncate">
+                {course.CourseTitle}
+              </div>
             ))}
-          </ul>
         </div>
       ))}
-    </div>
+    </>
   );
 };

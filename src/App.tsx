@@ -3,7 +3,6 @@ import { CourseData } from "./models/courseData";
 import { ProfessorSchedule } from "./ProfessorSchedule";
 import { RoomSchedule } from "./RoomSchedule";
 
-
 const fullSchedule = `CRN	Course	Section #	Course Title	Meeting Pattern	Instructor Name	Room	Credit Hrs
 5302	CS 1400	N01	Programming Fundamentals	Does Not Meet	Lewellen, Michael, J. 	ONLINE ONLINE - Completely Online	3
 5884	CS 1400	003	Programming Fundamentals	MWF 8:30am-9:20am	Allen, Heber 	GRSC 337 - Classroom (IVC)	3
@@ -52,7 +51,7 @@ const fullSchedule = `CRN	Course	Section #	Course Title	Meeting Pattern	Instruct
   SE3830		Cloud App Dev		#VALUE!		
 5162	SE 4230	001	Advanced Algorithms	MWF 10:30am-11:20am	Teichert, Adam 	GRSC 142 - Engineering Computer Lab	3
 5163	SE 4270	001	Software Maintenance Prac.	MWF 1:30pm-2:20pm	Allen, Jonathan, D 	GRSC 142 - Engineering Computer Lab	3
-4456	SE 4400	001	SE Practicum I	MW 3:30pm-5:20pm	Allen, Heber 	GRSC 143 - Engineering Computer Lab	4`
+4456	SE 4400	001	SE Practicum I	MW 3:30pm-5:20pm	Allen, Heber 	GRSC 143 - Engineering Computer Lab	4`;
 
 const alexSchedule = `CRN	Course	Section #	Course Title	Meeting Pattern	Instructor Name	Room	Credit Hrs
 4360	CS 1410	001	Object-Oriented Programming	MWF 8:30am-9:20am	Mickelson, Steven, Alexandre 	GRSC 323 - Classroom (IVC)	3
@@ -60,10 +59,9 @@ const alexSchedule = `CRN	Course	Section #	Course Title	Meeting Pattern	Instruct
 5520	CS 1430	002	User Experience Design	R 8:30am-9:20am	Mickelson, Steven, Alexandre 	GRSC 142 - Engineering Computer Lab	1
 5058	CS 1430	001	User Experience Design	R 9:30am-10:20am	Mickelson, Steven, Alexandre 	GRSC 142 - Engineering Computer Lab	1
 4455	CS 1810	001	Intro to Web Development	TR 11am-12:15pm	Mickelson, Steven, Alexandre 	GRSC 143 - Engineering Computer Lab	3
-5165	SE 4850	001	Advanced Front-End Dev.	MW 2:30pm-3:20pm; F 2:30pm-4:20pm	Mickelson, Steven, Alexandre 	GRSC 142 - Engineering Computer Lab	4`
+5165	SE 4850	001	Advanced Front-End Dev.	MW 2:30pm-3:20pm; F 2:30pm-4:20pm	Mickelson, Steven, Alexandre 	GRSC 142 - Engineering Computer Lab	4`;
 export const App = () => {
-  const [inputString, setInputString] =
-    useState(alexSchedule);
+  const [inputString, setInputString] = useState(fullSchedule);
 
   const parsedCourses = parseCourseData(inputString);
 
@@ -110,30 +108,32 @@ export const App = () => {
           }}
         />
       </div>
-
-      <section className="row m-1">
-        <div className="col">
-          <h3 className="text-center">Professors</h3>
-          <hr />
-          {Object.keys(coursesByProfessor).map((professor) => (
-            <ProfessorSchedule
-              key={"professor" + professor}
-              courses={coursesByProfessor[professor]}
-              professor={professor}
-            />
-          ))}
-        </div>
-        {/* <div className="col">
-          <h3 className="text-center">Rooms</h3>
-          <hr />
-          {Object.keys(coursesByRoom).map((room) => (
-            <RoomSchedule
-              key={"room" + room}
-              courses={coursesByRoom[room]}
-              roomName={room}
-            />
-          ))}
-        </div> */}
+      <section className="m-2">
+        <h3 className="text-center">Professors</h3>
+        <hr />
+        {Object.keys(coursesByProfessor).map((professor) => (
+          <ProfessorSchedule
+            key={"professor" + professor}
+            courses={coursesByProfessor[professor]}
+            professor={professor}
+          />
+        ))}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <h3 className="text-center">Rooms</h3>
+        <hr />
+        {Object.keys(coursesByRoom).map((room) => (
+          <RoomSchedule
+            key={"room" + room}
+            courses={coursesByRoom[room]}
+            roomName={room}
+          />
+        ))}
       </section>
     </>
   );
