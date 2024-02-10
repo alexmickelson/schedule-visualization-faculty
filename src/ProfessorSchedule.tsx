@@ -1,5 +1,6 @@
 import {  FC } from "react";
 import { CourseData } from "./models/courseData";
+import { WeekSchedule } from "./WeekSchedule";
 
 export const ProfessorSchedule: FC<{
   courses: CourseData[];
@@ -8,6 +9,8 @@ export const ProfessorSchedule: FC<{
   const chiLoad =courses.reduce((acc, c) => acc + (c.CHI ? c.CHI : 0), 0)
 
   const professorName = professor ? professor : "unassigned"
+
+  console.log(professorName)
   return (
     <div>
       <h4>{professorName} - {chiLoad}</h4>
@@ -18,6 +21,9 @@ export const ProfessorSchedule: FC<{
           </li>
         ))}
       </ul>
+      <section>
+        <WeekSchedule courses={courses} />
+      </section>
     </div>
   );
 };
