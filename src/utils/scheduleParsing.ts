@@ -14,7 +14,7 @@ export function parseCourseData(data: string): CourseData[] {
     MeetingPattern: headers.findIndex((v) => v.includes("Meeting Pattern")),
     Instructor: headers.findIndex((v) => v.includes("Instructor")),
     Room: headers.findIndex((v) => v.includes("Room")),
-    CHI: headers.findIndex((v) => v.includes("CHI")),
+    CHI: headers.findIndex((v) => v.includes("CHI") || v.includes("Credit")),
   };
 
   // Skip the header row and map each line to an object based on the header indices
@@ -24,7 +24,7 @@ export function parseCourseData(data: string): CourseData[] {
     return {
       CRN: values[headerIndices.CRN],
       Course: values[headerIndices.Course],
-      Section: values[headerIndices.Section].trim(), // Trim to remove any leading/trailing whitespace
+      Section: values[headerIndices.Section]?.trim(), // Trim to remove any leading/trailing whitespace
       CourseTitle: values[headerIndices.CourseTitle],
       MeetingPattern: values[headerIndices.MeetingPattern],
       Instructor: values[headerIndices.Instructor],
