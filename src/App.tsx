@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { CourseData } from "./models/courseData";
-import { RoomSchedule } from "./rooms/RoomSchedule";
 import { parseCourseData } from "./utils/scheduleParsing";
 import { AllProfessorsSchedule } from "./professors/AllProfessorsSchedule";
+import { AllRoomsSchedule } from "./rooms/AllRoomsSchedule";
 
 // const localStorageKey = "faculty-schedule";
 // const lastInput = localStorage.getItem(localStorageKey) ?? "";
@@ -13,20 +12,6 @@ export const App = () => {
 
   try {
     const parsedCourses = parseCourseData(inputString);
-
-    const coursesByRoom = parsedCourses.reduce((acc, course) => {
-      if (acc[course.Room]) {
-        return {
-          ...acc,
-          [course.Room]: [...acc[course.Room], course],
-        };
-      } else {
-        return {
-          ...acc,
-          [course.Room]: [course],
-        };
-      }
-    }, {} as Record<string, CourseData[]>);
 
     return (
       <>
@@ -52,16 +37,7 @@ export const App = () => {
           <br />
           <br />
           <br />
-
-          {/* <h3 className="text-center">Rooms</h3>
-          <hr />
-          {Object.keys(coursesByRoom).map((room) => (
-            <RoomSchedule
-              key={"room" + room}
-              courses={coursesByRoom[room]}
-              roomName={room}
-            />
-          ))} */}
+          <AllRoomsSchedule courses={parsedCourses} />
         </section>
       </>
     );

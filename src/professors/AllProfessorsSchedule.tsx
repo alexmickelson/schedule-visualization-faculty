@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { CourseData } from "../models/courseData";
 import { ProfessorSchedule } from "./ProfessorSchedule";
 
