@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { CourseData } from "./models/courseData";
 import { WeekDay } from "./WeekDay";
 import { timeSlots } from "./utils/courseTimeUtilities";

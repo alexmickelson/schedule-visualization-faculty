@@ -4,7 +4,7 @@ import { ProfessorSchedule } from "./ProfessorSchedule";
 import { RoomSchedule } from "./RoomSchedule";
 
 const localStorageKey = "faculty-schedule";
-const lastInput = localStorage.getItem(localStorageKey) ?? "";
+// const lastInput = localStorage.getItem(localStorageKey) ?? "";
 
 export const App = () => {
   const [inputString, setInputString] = useState("");

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { CourseData } from "./models/courseData";
 import { WeekSchedule } from "./WeekSchedule";
 
