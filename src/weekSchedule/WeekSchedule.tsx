@@ -19,7 +19,7 @@ export const WeekSchedule: FC<{ courses: CourseData[]; uniqueKey: string }> = ({
   const salt = Math.random().toString(36).substring(2, 7);
 
   return (
-    <div className="d-flex w-100">
+    <div className="d-flex w-100 justify-content-center">
       <div className="flex-1 m-0 p-0 border-end text-end ">
         <div className="text-center">time</div>
         {timeSlots.map((s) => (
@@ -30,7 +30,7 @@ export const WeekSchedule: FC<{ courses: CourseData[]; uniqueKey: string }> = ({
         return (
           <div
             key={"dayofweeek" + uniqueKey + d + salt}
-            className="flex-2 flex-fill m-0 p-0"
+            className="flex-2 m-0 p-0"
           >
             <div className="text-center">{dayLookup[d]}</div>
             <WeekDay day={d} courses={splitByDay[d]} />

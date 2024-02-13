@@ -53,7 +53,7 @@ export const App = () => {
           <br />
           <br />
 
-          <h3 className="text-center">Rooms</h3>
+          {/* <h3 className="text-center">Rooms</h3>
           <hr />
           {Object.keys(coursesByRoom).map((room) => (
             <RoomSchedule
@@ -61,7 +61,7 @@ export const App = () => {
               courses={coursesByRoom[room]}
               roomName={room}
             />
-          ))}
+          ))} */}
         </section>
       </>
     );

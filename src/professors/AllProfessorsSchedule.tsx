@@ -31,7 +31,7 @@ export const AllProfessorsSchedule: FC<{ courses: CourseData[] }> = ({
             return (
               <button
                 key={"professorbutton" + professor}
-                className={"nav-link " + isSelected ? "active" : ""}
+                className={"nav-link " + (isSelected ? "active" : "")}
                 id="nav-home-tab"
                 data-bs-toggle="tab"
                 data-bs-target={`#nav-${htmlProfessor}`}
@@ -39,6 +39,7 @@ export const AllProfessorsSchedule: FC<{ courses: CourseData[] }> = ({
                 role="tab"
                 aria-controls={`nav-${htmlProfessor}`}
                 aria-selected={isSelected}
+                onClick={() => setSelectedProfessor(professor)}
               >
                 {professor}
               </button>
@@ -54,7 +55,7 @@ export const AllProfessorsSchedule: FC<{ courses: CourseData[] }> = ({
           return (
             <div
               key={"professor" + professor}
-              className={"tab-pane fade " + isSelected ? "show active" : ""}
+              className={"tab-pane fade " + (isSelected ? "show active" : "")}
               id={`nav-${htmlProfessor}`}
               role="tabpanel"
               aria-labelledby={`nav-${htmlProfessor}-tab`}

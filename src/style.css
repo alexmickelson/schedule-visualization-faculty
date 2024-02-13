@@ -4,7 +4,10 @@ body {
 }
 
 .calendarDay {
-    min-height: 2.5em;
+    /* min-height: 2.5em; */
+    height: 3em;
+    max-width: 15em;
+    min-width: 10em;
 }
 .calendarDay:nth-child(even) {
     background-color: rgb(25, 25, 28);
@@ -14,4 +17,9 @@ body {
 
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+}
+
+
+.courseTitleInDay {
+    width: 100%;
 }
