@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CourseData } from "./models/courseData";
 import { ProfessorSchedule } from "./ProfessorSchedule";
 import { RoomSchedule } from "./RoomSchedule";
+import { parseCourseData } from "./utils/scheduleParsing";
 
 const localStorageKey = "faculty-schedule";
 // const lastInput = localStorage.getItem(localStorageKey) ?? "";
@@ -86,34 +87,3 @@ export const App = () => {
   );
 };
 
-function parseCourseData(data: string): CourseData[] {
-  // Split the input data into lines
-  const lines = data.split("\n");
-
-  // Skip the header row and map each line to an object
-  const courses = lines.slice(1).map((line) => {
-    const [
-      CRN,
-      Course,
-      Section,
-      CourseTitle,
-      MeetingPattern,
-      Instructor,
-      Room,
-      CHI,
-    ] = line.split("\t");
-
-    return {
-      CRN,
-      Course,
-      Section: Section.trim(), // Trim to remove any leading/trailing whitespace
-      CourseTitle,
-      MeetingPattern,
-      Instructor,
-      Room,
-      CHI: parseInt(CHI, 10), // Convert string to number
-    };
-  });
-
-  return courses;
-}

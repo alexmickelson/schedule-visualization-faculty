@@ -3,9 +3,9 @@ body {
     padding: 0;
 }
 
-/* .calendarDay {
+.calendarDay {
     min-height: 2.5em;
-} */
+}
 .calendarDay:nth-child(even) {
     background-color: rgb(25, 25, 28);
 }
