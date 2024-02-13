@@ -11,13 +11,16 @@ export const RoomSchedule: FC<{ courses: CourseData[]; roomName: string }> = ({
       <h4 className="text-center">{roomName}</h4>
       <ul>
         {courses.map((c) => (
-          <li key={"room" + c.CRN}>
+          <li key={"room" + c.CRN + c.Course.replace(".", "").replace(" ", "")}>
             {c.Course} - {c.CRN} - {c.MeetingPattern}
           </li>
         ))}
       </ul>
       <section>
-        <WeekSchedule courses={courses} />
+        <WeekSchedule
+          courses={courses}
+          uniqueKey={"roomkey" + roomName.replace(" ", "").replace(".", "")}
+        />
       </section>
     </div>
   );

@@ -11,7 +11,10 @@ const dayLookup: { [key: string]: string } = {
   R: "Thursday",
   F: "Friday",
 };
-export const WeekSchedule: FC<{ courses: CourseData[] }> = ({ courses }) => {
+export const WeekSchedule: FC<{ courses: CourseData[]; uniqueKey: string }> = ({
+  courses,
+  uniqueKey,
+}) => {
   const splitByDay = splitCoursesByDay(courses);
   const salt = Math.random().toString(36).substring(2, 7);
 
@@ -23,12 +26,17 @@ export const WeekSchedule: FC<{ courses: CourseData[] }> = ({ courses }) => {
           <div className="calendarDay p-1">{s}</div>
         ))}
       </div>
-      {days.map((d) => (
-        <div key={"dayofweeek" + d + salt} className="flex-2 flex-fill m-0 p-0">
-          <div className="text-center">{dayLookup[d]}</div>
-          <WeekDay day={d} courses={splitByDay[d]} />
-        </div>
-      ))}
+      {days.map((d) => {
+        return (
+          <div
+            key={"dayofweeek" + uniqueKey + d + salt}
+            className="flex-2 flex-fill m-0 p-0"
+          >
+            <div className="text-center">{dayLookup[d]}</div>
+            <WeekDay day={d} courses={splitByDay[d]} />
+          </div>
+        );
+      })}
     </div>
   );
 };
