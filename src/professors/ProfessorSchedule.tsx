@@ -1,6 +1,6 @@
 import {  FC } from "react";
-import { CourseData } from "./models/courseData";
-import { WeekSchedule } from "./WeekSchedule";
+import { CourseData } from "../models/courseData";
+import { WeekSchedule } from "../weekSchedule/WeekSchedule";
 
 export const ProfessorSchedule: FC<{
   courses: CourseData[];
@@ -10,7 +10,6 @@ export const ProfessorSchedule: FC<{
 
   const professorName = professor ? professor : "unassigned"
 
-  console.log(professorName)
   return (
     <div>
       <h4>{professorName} - {chiLoad}</h4>

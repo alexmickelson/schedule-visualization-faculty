@@ -6,8 +6,6 @@ export function parseCourseData(data: string): CourseData[] {
 
   // Extract and process the header row to determine the position of each attribute
   const headers = lines[0].split("\t").map((header) => header.trim());
-  console.log("headers", headers);
-  console.log(headers.findIndex((v) => v.includes("CRN")));
   const headerIndices = {
     CRN: headers.findIndex((v) => v.includes("CRN")),
     Course: headers.findIndex((v) => v.includes("Course")),
@@ -18,7 +16,6 @@ export function parseCourseData(data: string): CourseData[] {
     Room: headers.findIndex((v) => v.includes("Room")),
     CHI: headers.findIndex((v) => v.includes("CHI")),
   };
-  console.log("header indexes", headerIndices);
 
   // Skip the header row and map each line to an object based on the header indices
   const courses = lines.slice(1).map((line) => {

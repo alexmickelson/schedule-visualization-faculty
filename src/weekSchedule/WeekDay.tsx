@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { CourseData } from "./models/courseData";
-import { isCourseInTimeSlot, timeSlots } from "./utils/courseTimeUtilities";
+import { CourseData } from "../models/courseData";
+import { isCourseInTimeSlot, timeSlots } from "../utils/courseTimeUtilities";
 
 
 export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
@@ -13,7 +13,6 @@ export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
     return { timeSlot: t, timeSlotCourses: timeSlotCourses };
   });
 
-  console.log(coursesByTimeSlot);
   return (
     <>
       {coursesByTimeSlot.map((coursesInTimeslot, index) => (

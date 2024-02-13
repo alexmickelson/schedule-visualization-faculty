@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { CourseData } from "./models/courseData";
+import { CourseData } from "../models/courseData";
 import { WeekDay } from "./WeekDay";
-import { timeSlots } from "./utils/courseTimeUtilities";
+import { timeSlots } from "../utils/courseTimeUtilities";
 
 const days = ["M", "T", "W", "R", "F"];
 const dayLookup: { [key: string]: string } = {

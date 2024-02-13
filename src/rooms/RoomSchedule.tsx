@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { CourseData } from "./models/courseData";
-import { WeekSchedule } from "./WeekSchedule";
+import { CourseData } from "../models/courseData";
+import { WeekSchedule } from "../weekSchedule/WeekSchedule";
 
 export const RoomSchedule: FC<{ courses: CourseData[]; roomName: string }> = ({
   courses,
