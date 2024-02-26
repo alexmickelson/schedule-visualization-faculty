@@ -6,7 +6,7 @@ export function parseCourseData(data: string): CourseData[] {
 
   // Extract and process the header row to determine the position of each attribute
   const headers = lines[0].split("\t").map((header) => header.trim());
-  const headerIndices = {
+  const columnIndices = {
     CRN: headers.findIndex((v) => v.includes("CRN")),
     Course: headers.findIndex((v) => v.includes("Course")),
     Section: headers.findIndex((v) => v.includes("Section")),
@@ -22,14 +22,14 @@ export function parseCourseData(data: string): CourseData[] {
     const values = line.split("\t");
 
     return {
-      CRN: values[headerIndices.CRN],
-      Course: values[headerIndices.Course],
-      Section: values[headerIndices.Section]?.trim(), // Trim to remove any leading/trailing whitespace
-      CourseTitle: values[headerIndices.CourseTitle],
-      MeetingPattern: values[headerIndices.MeetingPattern],
-      Instructor: values[headerIndices.Instructor],
-      Room: values[headerIndices.Room],
-      CHI: parseInt(values[headerIndices.CHI], 10), // Convert string to number
+      CRN: values[columnIndices.CRN].trim(),
+      Course: values[columnIndices.Course],
+      Section: values[columnIndices.Section]?.trim(), // Trim to remove any leading/trailing whitespace
+      CourseTitle: values[columnIndices.CourseTitle],
+      MeetingPattern: values[columnIndices.MeetingPattern],
+      Instructor: values[columnIndices.Instructor].trim(),
+      Room: values[columnIndices.Room],
+      CHI: parseInt(values[columnIndices.CHI], 10), // Convert string to number
     };
   });
 

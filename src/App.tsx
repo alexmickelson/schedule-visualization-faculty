@@ -1,43 +1,28 @@
 import { useState } from "react";
-import { parseCourseData } from "./utils/scheduleParsing";
 import { AllProfessorsSchedule } from "./professors/AllProfessorsSchedule";
 import { AllRoomsSchedule } from "./rooms/AllRoomsSchedule";
+import { ScheduleInput } from "./ScheduleInput";
+import { CourseData } from "./models/courseData";
 
 // const localStorageKey = "faculty-schedule";
 // const lastInput = localStorage.getItem(localStorageKey) ?? "";
-
 export const App = () => {
-  const [inputString, setInputString] = useState("");
   // localStorage.setItem(localStorageKey, inputString);
 
+  const [courses, setCourses] = useState<CourseData[]>([])
   try {
-    const parsedCourses = parseCourseData(inputString);
-
     return (
       <>
-        <div>
-          <label htmlFor="spreadsheet-data">
-            Paste in Schedule Spreadsheet
-          </label>
-          <br />
-          <textarea
-            id="spreadsheet-data"
-            value={inputString}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setInputString(e.target.value);
-            }}
-          />
-        </div>
+        <ScheduleInput  setCourses={setCourses} />
         <section className="m-2 p-1">
-          <AllProfessorsSchedule courses={parsedCourses} />
+          <AllProfessorsSchedule courses={courses} />
           <br />
           <br />
           <br />
           <br />
           <br />
           <br />
-          <AllRoomsSchedule courses={parsedCourses} />
+          <AllRoomsSchedule courses={courses} />
         </section>
       </>
     );
