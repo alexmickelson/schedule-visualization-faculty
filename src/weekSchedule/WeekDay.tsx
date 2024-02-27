@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { CourseData } from "../models/courseData";
-import { isCourseInTimeSlot, calendarDayTimeSlots } from "../utils/courseTimeUtilities";
+import { isCourseInTimeSlot } from "../utils/courseTimeUtilities";
+import { calendarDayTimeSlots } from "../utils/timeSlotUtilities";
 
 
 export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({

@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { CourseData } from "../models/courseData";
 import { WeekDay } from "./WeekDay";
-import { splitCoursesByDay, calendarDayTimeSlots, timeSlotToString } from "../utils/courseTimeUtilities";
+import { splitCoursesByDay } from "../utils/courseTimeUtilities";
+import { calendarDayTimeSlots, timeSlotToString } from "../utils/timeSlotUtilities";
 
 const days = ["M", "T", "W", "R", "F"];
 const dayLookup: { [key: string]: string } = {
