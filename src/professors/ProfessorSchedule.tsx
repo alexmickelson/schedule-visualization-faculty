@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { CourseData } from "../models/courseData";
 import { WeekSchedule } from "../weekSchedule/WeekSchedule";
+import { sumChi } from "../utils/courseUtilities";
+
 
 export const ProfessorSchedule: FC<{
   courses: CourseData[];
   professor: string;
 }> = ({ courses, professor }) => {
-  const chiLoad = courses.reduce((acc, c) => acc + (c.CHI ? c.CHI : 0), 0);
+  const chiLoad = sumChi(courses);
 
   const professorName = professor ? professor : "unassigned";
 
