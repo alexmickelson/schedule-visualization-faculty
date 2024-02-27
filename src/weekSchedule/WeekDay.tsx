@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { CourseData } from "../models/courseData";
-import { isCourseInTimeSlot, timeSlots } from "../utils/courseTimeUtilities";
+import { isCourseInTimeSlot, calendarDayTimeSlots } from "../utils/courseTimeUtilities";
 
 
 export const WeekDay: FC<{ day: string; courses: CourseData[] }> = ({
   day,
   courses,
 }) => {
-  const coursesByTimeSlot = timeSlots.map((t) => {
+  const coursesByTimeSlot = calendarDayTimeSlots.map((t) => {
     const timeSlotCourses = courses.filter((c) => isCourseInTimeSlot(c, t, day));
 
     return { timeSlot: t, timeSlotCourses: timeSlotCourses };
