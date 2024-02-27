@@ -5,7 +5,7 @@ import { parseCourseData } from "./utils/scheduleParsing";
 export const ScheduleInput: FC<{
   setCourses: (courses: CourseData[]) => void;
 }> = ({ setCourses }) => {
-  const [error, setError] = useState("");
+  const [error, _setError] = useState("");
   const handleChange = (e: FormEvent<HTMLTextAreaElement>) => {
     console.log(e.currentTarget.value);
     const parsedCourses = parseCourseData(e.currentTarget.value);
