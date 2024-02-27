@@ -27,7 +27,7 @@ export function parseCourseData(data: string): CourseData[] {
       Course: values[columnIndices.Course],
       Section: values[columnIndices.Section]?.trim(), // Trim to remove any leading/trailing whitespace
       CourseTitle: values[columnIndices.CourseTitle],
-      // MeetingPattern: values[columnIndices.MeetingPattern],
+      MeetingPattern: meetingPattern,
       MeetingTimeSlots: timePeriods,
       Instructor: values[columnIndices.Instructor].trim(),
       Room: values[columnIndices.Room],

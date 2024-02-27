@@ -5,6 +5,7 @@ export interface CourseData {
   Course: string;
   Section: string;
   CourseTitle: string;
+  MeetingPattern: string;
   MeetingTimeSlots: TimePeriod[];
   Instructor: string;
   Room: string;

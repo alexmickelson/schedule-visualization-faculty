@@ -2,7 +2,10 @@ import { FC } from "react";
 import { CourseData } from "../models/courseData";
 import { WeekDay } from "./WeekDay";
 import { splitCoursesByDay } from "../utils/courseTimeUtilities";
-import { calendarDayTimeSlots, timeSlotToString } from "../utils/timeSlotUtilities";
+import {
+  calendarDayTimeSlots,
+  timeSlotToString,
+} from "../utils/timeSlotUtilities";
 
 const days = ["M", "T", "W", "R", "F"];
 const dayLookup: { [key: string]: string } = {
@@ -24,13 +27,15 @@ export const WeekSchedule: FC<{ courses: CourseData[]; uniqueKey: string }> = ({
       <div className="flex-1 m-0 p-0 border-end text-end ">
         <div className="text-center">time</div>
         {calendarDayTimeSlots.map((s) => (
-          <div className="calendarDay p-1">{timeSlotToString(s)}</div>
+          <div key={JSON.stringify(s)} className="calendarDay p-1">
+            {timeSlotToString(s)}
+          </div>
         ))}
       </div>
       {days.map((d) => {
         return (
           <div
-            key={"dayofweeek" + uniqueKey + d + salt}
+            key={"dayofweek" + uniqueKey + d + salt}
             className="flex-2 m-0 p-0"
           >
             <div className="text-center">{dayLookup[d]}</div>

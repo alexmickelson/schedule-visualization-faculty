@@ -84,6 +84,7 @@ describe("splitCoursesByDay", () => {
         Course: "Math 101",
         Section: "001",
         CourseTitle: "Introduction to Math",
+        MeetingPattern: "M 9am-10:15am",
         MeetingTimeSlots: [
           {
             day: "M",
@@ -109,6 +110,7 @@ describe("splitCoursesByDay", () => {
         Course: "Sci 102",
         Section: "002",
         CourseTitle: "Introduction to Science",
+        MeetingPattern: "TR 11am-12:15pm",
         MeetingTimeSlots: [
           {
             day: "T",
@@ -142,6 +144,7 @@ describe("isCourseInTimeSlot", () => {
       Course: "CS 1810",
       Section: "001",
       CourseTitle: "course name here",
+      MeetingPattern: "TR 11am-12:15pm",
       MeetingTimeSlots: [
         {
           day: "T",
@@ -173,6 +176,7 @@ describe("isCourseInTimeSlot", () => {
       Course: "CS 1810",
       Section: "001",
       CourseTitle: "course name here",
+      MeetingPattern: "TR 11am-12:15pm",
       MeetingTimeSlots: [
         {
           day: "T",

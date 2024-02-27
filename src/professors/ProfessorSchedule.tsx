@@ -15,17 +15,20 @@ export const ProfessorSchedule: FC<{
       <h4>
         {professorName} - {chiLoad}
       </h4>
-      <ul>
-        {courses.map((c) => (
-          <li
-            key={
-              "professor" + c.CRN + c.Course.replace(".", "").replace(" ", "")
-            }
-          >
-            {c.Course} - {c.CRN} - {c.MeetingPattern} - {c.CHI}
-          </li>
-        ))}
-      </ul>
+      <details>
+        <summary>Course List</summary>
+        <ul>
+          {courses.map((c) => (
+            <li
+              key={
+                "professor" + c.CRN + c.Course.replace(".", "").replace(" ", "")
+              }
+            >
+              {c.Course} - {c.CRN} - {c.MeetingPattern} - {c.CHI}
+            </li>
+          ))}
+        </ul>
+      </details>
       <section>
         <WeekSchedule
           courses={courses}

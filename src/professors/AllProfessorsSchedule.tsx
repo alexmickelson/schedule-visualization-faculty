@@ -19,6 +19,7 @@ export const AllProfessorsSchedule: FC<{ courses: CourseData[] }> = ({
       };
     }
   }, {} as Record<string, CourseData[]>);
+
   return (
     <div>
       <h3 className="text-center">Professors</h3>
@@ -51,7 +52,8 @@ export const AllProfessorsSchedule: FC<{ courses: CourseData[] }> = ({
         {Object.keys(coursesByProfessor).map((professor) => {
           const isSelected = professor === selectedProfessor;
           const htmlProfessor = professor.replace(" ", "").replace(",", "");
-          console.log(isSelected, htmlProfessor, selectedProfessor);
+          // console.log(isSelected, htmlProfessor, selectedProfessor);
+          
           return (
             <div
               key={"professor" + professor}

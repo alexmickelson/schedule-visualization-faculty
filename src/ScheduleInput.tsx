@@ -9,8 +9,10 @@ export const ScheduleInput: FC<{
   const handleChange = (e: FormEvent<HTMLTextAreaElement>) => {
     console.log(e.currentTarget.value);
     const parsedCourses = parseCourseData(e.currentTarget.value);
-    
+
     console.log(parsedCourses);
+
+    setCourses(parsedCourses);
   };
   return (
     <>

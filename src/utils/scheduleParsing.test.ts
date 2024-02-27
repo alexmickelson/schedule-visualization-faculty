@@ -7,14 +7,14 @@ test("can parse single line from website with inline tab characters", () => {
   const input = `CRN	Course	Section #	Course Title	Meeting Pattern	Instructor Name	Room	Credit Hrs
   4455	CS 1810	001	course name here	TR 11am-12:15pm	professor name here 	GRSC 143 - Engineering Computer Lab	3`;
   const actual = parseCourseData(input);
-  
+
   const expected: CourseData[] = [
     {
       CRN: "4455",
       Course: "CS 1810",
       Section: "001",
       CourseTitle: "course name here",
-      // MeetingPattern: "TR 11am-12:15pm",
+      MeetingPattern: "TR 11am-12:15pm",
       MeetingTimeSlots: [
         {
           day: "T",
@@ -45,7 +45,7 @@ test("can parse single line from website with declared tab characters", () => {
       Course: "CS 1810",
       Section: "001",
       CourseTitle: "course name here",
-      // MeetingPattern: "TR 11am-12:15pm",
+      MeetingPattern: "TR 11am-12:15pm",
       MeetingTimeSlots: [
         {
           day: "T",
@@ -76,7 +76,7 @@ test("can multiple meeting patterns", () => {
       Course: "CS 1810",
       Section: "001",
       CourseTitle: "course name here",
-      // MeetingPattern: "T 3:30pm-5:20pm; R 1:30pm-2:20pm",
+      MeetingPattern: "T 3:30pm-5:20pm; R 1:30pm-2:20pm",
       MeetingTimeSlots: [
         {
           day: "T",
