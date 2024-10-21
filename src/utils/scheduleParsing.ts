@@ -13,7 +13,7 @@ export function parseCourseData(data: string): CourseData[] {
     MeetingPattern: headers.findIndex((v) => v.includes("Meeting Pattern")),
     Instructor: headers.findIndex((v) => v.includes("Instructor")),
     Room: headers.findIndex((v) => v.includes("Room")),
-    CHI: headers.findIndex((v) => v.includes("CHI") || v.includes("Credit")),
+    CHI: headers.findIndex((v) => v.includes("CHI")), // || v.includes("Credit")),
   };
 
   const courses = lines.slice(1).map((line): CourseData => {
