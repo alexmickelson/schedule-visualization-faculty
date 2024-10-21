@@ -13,7 +13,7 @@ export function parseCourseData(data: string): CourseData[] {
     MeetingPattern: headers.findIndex((v) => v.includes("Meeting Pattern")),
     Instructor: headers.findIndex((v) => v.includes("Instructor")),
     Room: headers.findIndex((v) => v.includes("Room")),
-    CHI: headers.findIndex((v) => v.includes("CHI")), // || v.includes("Credit")),
+    CHI: headers.findIndex((v) => v.includes("CHI")|| v.includes("CHE")), // || v.includes("Credit")),
   };
 
   const courses = lines.slice(1).map((line): CourseData => {
@@ -25,7 +25,7 @@ export function parseCourseData(data: string): CourseData[] {
     return {
       CRN: values[columnIndices.CRN].trim(),
       Course: values[columnIndices.Course],
-      Section: values[columnIndices.Section]?.trim(), // Trim to remove any leading/trailing whitespace
+      Section: values[columnIndices.Section]?.trim() ?? "", // Trim to remove any leading/trailing whitespace
       CourseTitle: values[columnIndices.CourseTitle],
       MeetingPattern: meetingPattern,
       MeetingTimeSlots: timePeriods,

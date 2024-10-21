@@ -96,3 +96,23 @@ test("can multiple meeting patterns", () => {
   ];
   expect(actual).toEqual(expected);
 });
+
+test("can get jonathan chi correctly", () => {
+  const input = `CRN	Course	Sec	Course Title	Meeting Pattern	Instructor	Room	Credits	Max	Prior	CHE
+	CL		Computer Labs Manager		professor name here					3`;
+  const actual = parseCourseData(input);
+  const expected: CourseData[] = [
+    {
+      CRN: "",
+      Course: "CL",
+      Section: "",
+      CourseTitle: "Computer Labs Manager",
+      MeetingPattern: "",
+      MeetingTimeSlots: [],
+      Instructor: "professor name here",
+      Room: "",
+      CHI: 3,
+    },
+  ];
+  expect(actual).toEqual(expected);
+});
