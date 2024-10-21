@@ -31,7 +31,7 @@ export function parseCourseData(data: string): CourseData[] {
       MeetingTimeSlots: timePeriods,
       Instructor: values[columnIndices.Instructor].trim(),
       Room: values[columnIndices.Room],
-      CHI: parseInt(values[columnIndices.CHI], 10), // Convert string to number
+      CHI: parseFloat(values[columnIndices.CHI]), // Convert string to number
     };
   });
 
