@@ -1,4 +1,3 @@
-// sum.test.js
 import { expect, test } from "vitest";
 import { parseCourseData } from "./scheduleParsing";
 import { CourseData } from "../models/courseData";
